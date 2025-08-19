@@ -1,7 +1,39 @@
-write_poem:
+researcher_chapter:
   description: >
-    Write a poem about how CrewAI is awesome.
-    Ensure the poem is engaging and adheres to the specified sentence count of {sentence_count}.
+    Researcher the provided chapter topic and gather relevant information to create a well-structured outline, that will be helpful in writing the chapter.
+    Ensure you focus on reliable, high-quality sources and synthesize the information effectively.
+
+    Here is some additional information about the author's desired goal for the book:\n\n {Goal}
+    Here is the outline description for the chapter:\n\n {chapter_description}
+
+    When researching, consider the following key points:
+    - Identify the main themes and subtopics related to the chapter.
+    - Need to gather enough information to write a 3000-word chapter.
+    - Gather data, statistics, and examples that support the chapter's main ideas.
+
+    Here is the outline of the entrie book:\n\n {book_outline}
   expected_output: >
-    A beautifully crafted poem about CrewAI, with exactly {sentence_count} sentences.
-  agent: poem_writer
+    A well-structured outline for the chapter, including main themes, subtopics, and key points to cover.
+    The outline should be detailed enough to guide the writing process and should be in markdown format.
+  agents: researcher
+
+
+writer_chapter:  
+  description: >
+    Write a detailed and engaging chapter based on the outline provided by the outliner.
+    Each chapter should be written in markdown format and should contain around 3000 words.
+    Ensure that the chapter is well-structured, informative, and aligned with the author's vision for the book.
+
+    Here is the topic for the book:{topic}
+    Here is the title of the chapter:\n\n {chapter_title}
+    Here is the outline description for the chapter:\n\n {chapter_description}
+
+    Important points to consider while writing:
+    - The chapter you are writing need to fit in well with the rest of the chapters in the book.
+    - Ensure that the chapter is engaging and informative, with a clear structure.
+
+    Here is the outline of the entrie book:\n\n {book_outline}
+
+  expected_output: >
+    A well-written chapter in markdown format, containing around 3000 words.
+  agents: writer

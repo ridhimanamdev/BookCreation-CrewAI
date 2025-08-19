@@ -34,37 +34,37 @@ class WriteBookCrew:
         )
     
     @agent
-    def outliner(self) -> Agent:
+    def writer(self) -> Agent:
         """
         Agent to create a book outline based on the gathered information.
         """
         return Agent(
-            config=self.agents_config["outliner"],
+            config=self.agents_config["writer"],
             llm=self.llm,
             tools=[search_tool],
             verbose=True,
         )
 
     @task
-    def research_topic(self) -> Task:
+    def research_chapter(self) -> Task:
         """
         Task to research the topic of the book.
         """
         return Task(
-            config=self.tasks_config["research_topic"],
+            config=self.tasks_config["research_chapter"],
             agent=self.researcher,
             inputs={"topic": "Your book topic here"},
             outputs={"research_results": "Research results for the book topic"},
         )
     
     @task
-    def generate_outline(self) -> Task:
+    def writer_chapter(self) -> Task:
         """
         Task to create the book outline based on the research results.
         """
         return Task(
-            config=self.tasks_config["generate_outline"], output_pydantic=BookOutline,
-            agent=self.outliner,
+            config=self.tasks_config["writer_chapter"], output_pydantic=BookOutline,
+            agent=self.writer,
             inputs={"research_results": "Research results from the previous task"},
             outputs={"book_outline": BookOutline},
         )
