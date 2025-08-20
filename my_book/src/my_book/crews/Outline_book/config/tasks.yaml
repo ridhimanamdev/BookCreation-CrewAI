@@ -32,5 +32,7 @@ generate_outline:
     - Ensure that the outline is engaging and informative, with a clear structure.  
 
   expected_output: >
+    A detailed and organized outline for the chapter, including all the chapters, sections, and key points that need to be covered in each section.
+    The outline should be in markdown format and should be easy to follow.
   
   agents: outliner
