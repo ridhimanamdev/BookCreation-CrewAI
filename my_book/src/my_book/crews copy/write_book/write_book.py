@@ -2,8 +2,7 @@ from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
 from crewai_tools import SerperDevTool
 import os
-from write_a_book_with_flows.types import BookOutline
-
+from write_a_book_with_flows.types import Chapter
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -53,9 +52,7 @@ class WriteBookCrew:
         return Task(
             config=self.tasks_config["research_chapter"],
             agent=self.researcher,
-            inputs={"topic": "Your book topic here"},
-            outputs={"research_results": "Research results for the book topic"},
-        )
+            )
     
     @task
     def writer_chapter(self) -> Task:
@@ -63,14 +60,12 @@ class WriteBookCrew:
         Task to create the book outline based on the research results.
         """
         return Task(
-            config=self.tasks_config["writer_chapter"], output_pydantic=BookOutline,
+            config=self.tasks_config["writer_chapter"], output_pydantic=Chapter,
             agent=self.writer,
-            inputs={"research_results": "Research results from the previous task"},
-            outputs={"book_outline": BookOutline},
         )
     
     @crew
-    def outline_book(self) -> Crew:
+    def crew(self) -> Crew:
         """
         Crew to outline a book using the researcher and outliner agents.
         """

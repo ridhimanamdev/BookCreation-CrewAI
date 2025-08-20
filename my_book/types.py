@@ -12,3 +12,7 @@ class ChapterOutline(BaseModel):
 class BookOutline(BaseModel):
     chapters: List[ChapterOutline]
 
+class Chapter(BaseModel):
+    title: str
+    content: str
+

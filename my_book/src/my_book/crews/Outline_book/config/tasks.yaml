@@ -20,20 +20,17 @@ research_topic:
 
 generate_outline:
   description: >
-    Write a detailed and engaging chapter based on the outline provided by the outliner.
-    Each chapter should be written in markdown format and should contain around 3000 words.
-    Ensure that the chapter is well-structured, informative, and aligned with the author's vision for the book.
+   Write a detailed and correct outline based on the researcher's findings.
+   The outline should be structured in a way that makes it easy to write the book.
 
     Here is the topic for the book:{topic}
     Here is the title of the chapter:\n\n {chapter_title}
     Here is the outline description for the chapter:\n\n {chapter_description}
 
     Important points to consider while writing:
-    - The chapter you are writing need to fit in well with the rest of the chapters in the book.
-    - Ensure that the chapter is engaging and informative, with a clear structure.
-
-    Here is the outline of the entrie book:\n\n {book_outline}
+    - The outline you are writing need to fit in well with the rest of the chapters in the book.
+    - Ensure that the outline is engaging and informative, with a clear structure.  
 
   expected_output: >
-    A well-written chapter in markdown format, containing around 3000 words.
+  
   agents: outliner
